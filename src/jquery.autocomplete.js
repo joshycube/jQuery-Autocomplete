@@ -234,6 +234,14 @@
             }
         },
 
+        callbackForJsonp: function (response) {
+            var that = this;
+            if (that.options.onSearchComplete !== false) {
+                that.options.onSearchComplete.call(that, {}, response)
+                that.suggest();
+            }
+        },
+
         setOptions: function (suppliedOptions) {
             var that = this,
                 options = that.options;
